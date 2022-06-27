@@ -49,6 +49,7 @@ class CustomImageDataset():
         correct_id = st.iloc[(st['Start'] - input).abs().argsort()[:2]].index
         return correct_id
 
+
     """
 start time -> lese df -> wandle time in ints -> gehe durch df und suche korrekten idx -> gebe diese zeit an
     """
