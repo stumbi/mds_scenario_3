@@ -9,7 +9,7 @@ class CustomImageDataset():
         self.start_times = label_df['Start']
         self.sleep_labels = label_df['Schlafstadium']
         self.start_time = self.create_time(self.start_times)
-        self.end_time = self.create_time(label_df['Start'])
+        self.end_time = self.create_time(label_df[['Start']])
         self.start_id = self.get_id()
 
     def __len__(self):
@@ -30,7 +30,7 @@ class CustomImageDataset():
 
     @staticmethod
     def create_time(frame_time):
-        return frame_time.apply(frame_time.change_time)
+        return frame_time.apply(change_time)
 
     # condition: patient has to wake up before 10am and go to sleep after 10am
     @staticmethod
@@ -53,9 +53,9 @@ class CustomImageDataset():
 start time -> lese df -> wandle time in ints -> gehe durch df und suche korrekten idx -> gebe diese zeit an
     """
 
+
 def main():
-    print('dir', os.getcwd())
-    path = '../data/Exercises_SS22/Sleep_data_downsampling_AllSensorChannels_10HZ/sleep_data_downsampling_AllSensorChannels_lowfrequency_10HZ/patient 29, male, 7 years/SleepStaging.csv'
+    path = '../data/Exercises_SS22/sleeplab_dataset_10hz/patient_29_male_7_years/sleep_staging.csv'
     label_df = pd.read_csv(path)
 
     cid = CustomImageDataset(label_df)

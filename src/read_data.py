@@ -18,7 +18,7 @@ def read_data(patient_path):
 
     return df
 
-df = read_data('data/Exercises_SS22/sleeplab_dataset/sleep_lab_data/patient 29, male, 7 years')
+df = read_data('data/Exercises_SS22/sleeplab_dataset/sleep_lab_data/patient_29_male_7_years')
 
 print(df)
 
