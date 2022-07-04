@@ -4,7 +4,7 @@ from torch.utils.data import Dataset
 from torchvision.io import read_image
 
 
-class CustomImageDataset():
+class CustomImageDataset(Dataset):
     def __init__(self, label_df):
         self.start_times = label_df['Start']
         self.sleep_labels = label_df['Schlafstadium']
